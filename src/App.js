@@ -7,11 +7,28 @@ function App() {
   }
 
 
-  const [user, setUser] = useState({name:"",password:""})
+  const [user, setUser] = useState({name:"",password:""});
+  const [error, setError] = useState("")
 
+  const Login = details => {
+    console.log(details);
+  }
+
+  const Logout = () => {
+    console.log("logout");
+  }
 
   return (
+    
     <div className="App">
+      {(user.email != "") ?(
+        <div className="welcome">
+          <h2>Welcome, <span>{user.name}</span></h2>
+          <button>Logout</button>        
+        </div>):(
+          <LoginForm />
+        )
+      }
     </div>
   );
 }
