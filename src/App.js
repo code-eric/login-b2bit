@@ -1,17 +1,17 @@
 import React, {useState} from 'react'
 import LoginForm from './components/LoginForm';
+import ProfilePage from './components/ProfilePage';
 
 function App() {
   const [loginEmail, setLoginEmail] = useState("");
   const [error, setError] = useState("");
-  const [access, setAccess] = useState("");
-  const [refresh, setRefresh] = useState("");
   const [name, setName] = useState("");
   const [registeredEmail, setRegisteredEmail] = useState("");
   const [pictureLink, setPictureLink] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-
-  let test = 1;
+  
+  
   
   const Login = async details => {
     
@@ -33,34 +33,37 @@ function App() {
       
     const response = await fetch("https://frontendproject.b2bit.company/account/tokens/", requestOptions);
     const text = await response.text();
+    if(response.ok){
     const json = await JSON.parse(text);
-    setAccess(json.tokens.access);
-    setRefresh(json.tokens.refresh);
-    setPictureLink(json.user.avatar.image_medium_url);
-    setName(`${json.user.name} ${json.user.last_name}`);
-    setLoginEmail(json.user.email);
+      //setAccess(json.tokens.access);
+      //setRefresh(json.tokens.refresh);
+      setPictureLink(json.user.avatar.image_medium_url);
+      setName(`${json.user.name} ${json.user.last_name}`);
+      setRegisteredEmail(json.user.email);
+      setIsLoggedIn(true);
+    }else{
+      setError("invalid email/passowrd")
+    }
 
     console.log(name, pictureLink);
   }
   
 
   const Logout = () => {
-    setLoginEmail("");
+    setIsLoggedIn(false);
     setError("")
   }
 
   return (
     
     <div className="App">
-      {(loginEmail != "") ? (
-        <div className="welcome">
-          <h2>Email is: <span>{loginEmail}</span></h2>
-          <button onClick={Logout}>Logout</button>        
-        </div>
+      { isLoggedIn ? (
+          <ProfilePage Logout={Logout} pictureLink={pictureLink} name={name} registeredEmail={registeredEmail} />
         ) : (
           <LoginForm Login={Login} error={error}/>
         )}
     </div>
+    
   );
 }
 
