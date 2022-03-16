@@ -33,12 +33,12 @@ export const Content = styled.div`
     .pictureLabel{
         /* Profile picture */
         position: absolute;
-        width: 77px;
+        width: 90px;
         height: 12px;
-        left: 138px;
+        left: 132px;
         top: 20px;
 
-        font-family: 'Nunito';
+        font-family: 'Nunito', sans-serif;
         font-style: normal;
         font-weight: 600;
         font-size: 12px;

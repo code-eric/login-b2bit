@@ -52,7 +52,13 @@ function App() {
 
   const Logout = () => {
     setIsLoggedIn(false);
+    setPictureLink("");
+    setName("");
+    setRegisteredEmail("");
     setError("")
+
+    localStorage.setItem('accessToken', "");
+    localStorage.setItem('refreshToken', "")
   }
 
   return (
