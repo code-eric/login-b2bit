@@ -1,0 +1,14 @@
+Manual de uso:
+
+Executando
+1. Atualizar dependências (A única biblioteca importada é a styled-components)
+2. Executar o comando: npm start
+3. O programa deve ser acessado pelo navegador por: localhost:3000
+
+
+Uso
+1. Uma vez que o programa estiver sendo executado, digite o email e a senha e aperte o botão "Sign in"
+2. só existe uma combinação correta= email: miguel@b2bit.company  senha: ctLbtGWLtg
+3. Digitar as credenciais erradas exibe uma mensagem de erro
+4. Digitar as credenciais corretas leva você até o menu de perfil
+5. Do menu de perfil é possível voltar ao menu de login, apertando o botão "Logout" que apaga todas as suas informações armazenadas localmente
