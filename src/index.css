@@ -1,3 +1,6 @@
 body{
     background: #E5E5E5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

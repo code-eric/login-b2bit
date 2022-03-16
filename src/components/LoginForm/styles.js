@@ -2,11 +2,11 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     /* Frame 1296 */
-    position: absolute;
+    position: relative;
     width: 438px;
     height: 534px;
-    left: 501px;
-    top: 161px;
+    margin-top: 161px;
+  
 
     /* Brancos/Branco */
 
@@ -101,6 +101,9 @@ export const Content = styled.div`
         /* Primárias/Azul b2 */
         background: #02274F;
         border-radius: 9px;
+
+        display: inline-block;
+        text-align: center;
     }
 
     .logo{

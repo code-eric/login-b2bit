@@ -34,13 +34,14 @@ function App() {
     const response = await fetch("https://frontendproject.b2bit.company/account/tokens/", requestOptions);
     const text = await response.text();
     if(response.ok){
-    const json = await JSON.parse(text);
-      //setAccess(json.tokens.access);
-      //setRefresh(json.tokens.refresh);
+      const json = await JSON.parse(text);
+      localStorage.setItem('accessToken', `${json.tokens.access}`);
+      localStorage.setItem('refreshToken', `${json.tokens.refresh}`)
       setPictureLink(json.user.avatar.image_medium_url);
       setName(`${json.user.name} ${json.user.last_name}`);
       setRegisteredEmail(json.user.email);
       setIsLoggedIn(true);
+
     }else{
       setError("invalid email/passowrd")
     }
